@@ -1,36 +1,18 @@
-
-const removeFromArray = function(array, valueOne, valueTwo, valueThree, valueFour) {
+function checkArray(array, value){
   for (var i = 0; i < array.length; i++) {
-      if((typeof array[i]==typeof valueOne) && (array[i]==valueOne))
+      if((typeof array[i]==typeof value) && (array[i]==value))
       {
           array.splice(i, 1);
       }
-  }
-
-  for (var i = 0; i < array.length; i++) {
-    if((typeof array[i]==typeof valueTwo) && (array[i]==valueTwo))
-    {
-        array.splice(i, 1);
     }
   }
 
-  for (var i = 0; i < array.length; i++) {
-    if((typeof array[i]==typeof valueThree) && (array[i]==valueThree))
-    {
-        array.splice(i, 1);
-    }
-  }
-
-  for (var i = 0; i < array.length; i++) {
-    if((typeof array[i]==typeof valueFour) && (array[i]==valueFour))
-    {
-        array.splice(i, 1);
-    }
-  }
-
-
-
-  return array;
+const removeFromArray = function(array, valueOne, valueTwo, valueThree, valueFour) {
+    checkArray(array, valueOne);
+    checkArray(array, valueTwo);
+    checkArray(array, valueThree);
+    checkArray(array, valueFour);
+    return array;
 };
 
 removeFromArray([1,2,3,4],3);
