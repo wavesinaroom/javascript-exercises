@@ -6,8 +6,9 @@ const add = function(inputOne, inputTwo) {
 	return result;
 };
 
-const subtract = function() {
-
+const subtract = function(inputOne, inputTwo) {
+	result = inputOne - inputTwo;
+	return result;
 };
 
 const sum = function() {
@@ -26,10 +27,16 @@ const factorial = function() {
 
 };
 
-//Add funtion calls
+//Add function calls
 add(0,0);
 add(2,2);
 add(2,6);
+
+//subtract function calls
+subtract(10,4); 
+
+
+
 // Do not edit below this line
 module.exports = {
   add,
