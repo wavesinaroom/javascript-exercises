@@ -41,7 +41,7 @@ subtract(10,4);
 
 //sum function calls
 sum([]);
-
+sum([7]);
 
 // Do not edit below this line
 module.exports = {
