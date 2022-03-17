@@ -1,7 +1,9 @@
 const sumAll = function(firstNumber, secondNumber) {
   let result=0;
   if (firstNumber<0||secondNumber<0) {
-    return "ERROR"; 
+    return "ERROR";
+  }else if (typeof firstNumber!="number"||typeof secondNumber!="number") {
+    return "ERROR";
   }
 
   if (secondNumber>firstNumber) {
@@ -19,6 +21,7 @@ const sumAll = function(firstNumber, secondNumber) {
 sumAll(1,4);
 sumAll(1,4000);
 sumAll(123,1);
+sumAll(10, "90");
 
 // Do not edit below this line
 module.exports = sumAll;
