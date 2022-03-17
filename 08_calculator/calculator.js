@@ -11,8 +11,12 @@ const subtract = function(inputOne, inputTwo) {
 	return result;
 };
 
-const sum = function() {
-
+const sum = function(array) {
+	let result = 0;
+	for (var i = 0; i < array.length; i++) {
+		result += array[i];
+	}
+	return result;
 };
 
 const multiply = function() {
@@ -33,8 +37,10 @@ add(2,2);
 add(2,6);
 
 //subtract function calls
-subtract(10,4); 
+subtract(10,4);
 
+//sum function calls
+sum([]);
 
 
 // Do not edit below this line
