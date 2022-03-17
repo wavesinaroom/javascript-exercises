@@ -7,6 +7,7 @@ const leapYears = function(year) {
 };
 
 leapYears(1996);
+leapYears(1997);
 
 // Do not edit below this line
 module.exports = leapYears;
