@@ -40,7 +40,7 @@ const factorial = function(number) {
 	if (number==0) {
 		return 1;
 	}
-		return number*factorial(number-1); 
+		return number*factorial(number-1);
 };
 
 //Add function calls
@@ -66,6 +66,7 @@ power(4,3);
 //Factorial function calls
 factorial(0);
 factorial(1);
+factorial(2);
 
 
 // Do not edit below this line
