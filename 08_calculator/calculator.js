@@ -19,8 +19,12 @@ const sum = function(array) {
 	return result;
 };
 
-const multiply = function() {
-
+const multiply = function(array) {
+	let result = 1;
+	for (var i = 0; i < array.length; i++) {
+		result *= array[i];
+	}
+	return result;
 };
 
 const power = function() {
@@ -44,6 +48,9 @@ sum([]);
 sum([7]);
 sum([7,11]);
 sum([1,3,5,7,9]);
+
+//Multiply function calls
+multiply([2,4]);
 
 // Do not edit below this line
 module.exports = {
