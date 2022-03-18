@@ -27,8 +27,12 @@ const multiply = function(array) {
 	return result;
 };
 
-const power = function() {
-
+const power = function(number, power) {
+	let result = 1;
+	for (var i = 0; i < power ; i++) {
+		result *= number;
+	}
+	return result; 
 };
 
 const factorial = function() {
@@ -51,6 +55,9 @@ sum([1,3,5,7,9]);
 
 //Multiply function calls
 multiply([2,4]);
+
+//Power funcion calls
+power(4,3);
 
 // Do not edit below this line
 module.exports = {
