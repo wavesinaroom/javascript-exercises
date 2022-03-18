@@ -67,6 +67,7 @@ power(4,3);
 factorial(0);
 factorial(1);
 factorial(2);
+factorial(5);
 
 
 // Do not edit below this line
