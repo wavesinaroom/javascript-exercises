@@ -32,11 +32,15 @@ const power = function(number, power) {
 	for (var i = 0; i < power ; i++) {
 		result *= number;
 	}
-	return result; 
+	return result;
 };
 
-const factorial = function() {
+const factorial = function(number) {
 
+	if (number==0) {
+		return 1;
+	}
+		return number*factorial(number-1); 
 };
 
 //Add function calls
@@ -58,6 +62,11 @@ multiply([2,4]);
 
 //Power funcion calls
 power(4,3);
+
+//Factorial function calls
+factorial(0);
+factorial(1);
+
 
 // Do not edit below this line
 module.exports = {
