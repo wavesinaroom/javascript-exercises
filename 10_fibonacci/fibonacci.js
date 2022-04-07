@@ -13,7 +13,6 @@ const fibonacci = function(term) {
     result = second +first;
     first = second;
     second = result;
-    console.log(result);
   }
 
   return result;
