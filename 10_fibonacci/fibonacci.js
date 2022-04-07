@@ -4,12 +4,20 @@ const fibonacci = function(term) {
   let first = 0;
   let result = 0;
 
+  if(typeof(term)==="string")
+  {
+    term = parseInt(term);
+  }
+
   if(term<0)
   {
     return "OOPS";
   }else if(term==0)
   {
     return first;
+  }else if(term==1)
+  {
+    return second; 
   }
 
   for (var i = 2; i <= term ; i++) {
