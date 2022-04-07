@@ -4,7 +4,10 @@ const fibonacci = function(term) {
   let first = 0;
   let result = 0;
 
-  if(term==0)
+  if(term<0)
+  {
+    return "OOPS";
+  }else if(term==0)
   {
     return first;
   }
