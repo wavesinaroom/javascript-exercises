@@ -17,21 +17,41 @@ const caesar = function(inputMessage, shiftFactor) {
       if(inputMessage[i].match(regEx))
       {
         char[i] = inputMessage.charCodeAt(i);
-
-        if((char[i]<capLetterBottomBound)&&(char[i]>capLetterTopBound)&&(char[i]+shiftFactor)>capLetterBottomBound)
+        if(shiftFactor>0)
         {
-          remainder -= (capLetterBottomBound-char[i]);
-          char[i] = (capLetterTopBound + remainder)-1;
-        }else if((char[i]<nonCapLetterBottomBound)&&(char[i]>nonCapLetterTopBound)&&(char[i]+shiftFactor)>nonCapLetterBottomBound)
+          if((char[i]<=capLetterBottomBound)&&(char[i]>=capLetterTopBound)&&(char[i]+shiftFactor)>capLetterBottomBound)
+          {
+            remainder -= (capLetterBottomBound-char[i]);
+            char[i] = (capLetterTopBound + remainder)-1;
+          }else if((char[i]<=nonCapLetterBottomBound)&&(char[i]>=nonCapLetterTopBound)&&(char[i]+shiftFactor)>nonCapLetterBottomBound)
+          {
+            remainder -= (nonCapLetterBottomBound-char[i]);
+            char[i] = (nonCapLetterTopBound + remainder)-1;
+          }//Non capital Negative shift
+          else
+          {
+            char[i] += shiftFactor;
+          }
+        }else if(shiftFactor<0)
         {
-          remainder -= (nonCapLetterBottomBound-char[i]);
-          char[i] = (nonCapLetterTopBound + remainder)-1;
-        }else
-        {
-          char[i] += shiftFactor;
+          if((char[i]<=capLetterBottomBound)&&(char[i]>=capLetterTopBound)&&(char[i]+shiftFactor)<capLetterTopBound)
+          {
+            remainder += (char[i]-capLetterTopBound);
+            char[i] = (capLetterBottomBound+remainder)+1;
+          }//Non capital Positive shift
+          else if((char[i]<=nonCapLetterBottomBound)&&(char[i]>=nonCapLetterTopBound)&&(char[i]+shiftFactor)<capLetterTopBound)
+          {
+            remainder += (char[i]-nonCapLetterTopBound);
+            char[i] = (nonCapLetterBottomBound+remainder)+1;
+          }
+          else
+          {
+            char[i] += shiftFactor;
+          }
         }
-
         remainder = shiftFactor;
+
+
         outputMessage[i] = String.fromCharCode(char[i]);
       }else
       {
