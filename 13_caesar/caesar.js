@@ -15,7 +15,7 @@ const caesar = function(inputMessage, shiftFactor) {
   let wrapTop;
 
   for (var i = 0; i < inputMessage.length; i++) {
-      //Alpha char
+      //Alpha character
       if(inputMessage[i].match(regEx))
       {
         char[i] = inputMessage.charCodeAt(i);
