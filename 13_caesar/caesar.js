@@ -11,47 +11,75 @@ const caesar = function(inputMessage, shiftFactor) {
   const nonCapLetterTopBound = 97;  // a
   const nonCapLetterBottomBound = 122; // z
 
-  let remainder = shiftFactor;
-
   for (var i = 0; i < inputMessage.length; i++) {
       if(inputMessage[i].match(regEx))
       {
         char[i] = inputMessage.charCodeAt(i);
+        //Positive shift
         if(shiftFactor>0)
         {
-          if((char[i]<=capLetterBottomBound)&&(char[i]>=capLetterTopBound)&&(char[i]+shiftFactor)>capLetterBottomBound)
+          //Caps letters
+          if((char[i]<=capLetterBottomBound)&&(char[i]>=capLetterTopBound))
           {
-            remainder -= (capLetterBottomBound-char[i]);
-            char[i] = (capLetterTopBound + remainder)-1;
-          }else if((char[i]<=nonCapLetterBottomBound)&&(char[i]>=nonCapLetterTopBound)&&(char[i]+shiftFactor)>nonCapLetterBottomBound)
+            for(let j = 0; j<shiftFactor; j++)
+            {
+              if(char[i]===capLetterBottomBound)
+              {
+                char[i]=capLetterTopBound-1;
+              }
+              char[i]++;
+            }
+          }
+          //No caps letters
+          else if((char[i]<=nonCapLetterBottomBound)&&(char[i]>=nonCapLetterTopBound))
           {
-            remainder -= (nonCapLetterBottomBound-char[i]);
-            char[i] = (nonCapLetterTopBound + remainder)-1;
-          }//Non capital Negative shift
+            for(let k = 0; k<shiftFactor; k++)
+            {
+              if(char[i]===nonCapLetterBottomBound)
+              {
+                char[i]=nonCapLetterTopBound-1;
+              }
+              char[i]++;
+            }
+          }
+          //Non alpha
           else
           {
             char[i] += shiftFactor;
           }
-        }else if(shiftFactor<0)
+        }//Negative shift
+        else if(shiftFactor<0)
         {
-          if((char[i]<=capLetterBottomBound)&&(char[i]>=capLetterTopBound)&&(char[i]+shiftFactor)<capLetterTopBound)
+          //Caps letters
+          if((char[i]<=capLetterBottomBound)&&(char[i]>=capLetterTopBound))
           {
-            remainder += (char[i]-capLetterTopBound);
-            char[i] = (capLetterBottomBound+remainder)+1;
-          }//Non capital Positive shift
-          else if((char[i]<=nonCapLetterBottomBound)&&(char[i]>=nonCapLetterTopBound)&&(char[i]+shiftFactor)<capLetterTopBound)
+            for(let l=0; l>shiftFactor; l--)
+            {
+              if(char[i]===capLetterTopBound)
+              {
+                char[i]=capLetterBottomBound+1;
+              }
+              char[i]--;
+            }
+          }//Non caps
+          else if((char[i]<=nonCapLetterBottomBound)&&(char[i]>=nonCapLetterTopBound))
           {
-            remainder += (char[i]-nonCapLetterTopBound);
-            char[i] = (nonCapLetterBottomBound+remainder)+1;
+            for(let l=0; l>shiftFactor; l--)
+            {
+              if(char[i]===nonCapLetterTopBound)
+              {
+                char[i]=nonCapLetterBottomBound+1;
+              }
+              char[i]--;
+            }
           }
+          //Non alpha
           else
           {
             char[i] += shiftFactor;
           }
         }
         remainder = shiftFactor;
-
-
         outputMessage[i] = String.fromCharCode(char[i]);
       }else
       {
